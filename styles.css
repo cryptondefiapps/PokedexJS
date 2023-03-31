@@ -1,0 +1,25 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #bf2e2e;
+}
+
+#logo {
+    margin: 10px;
+    width: 150px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.poke-img {
+    width: 300px;
+}
