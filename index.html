@@ -16,23 +16,100 @@
                 </div>
             </header>
             <div class="container">
-                <div class="pokedex">
-                    <div class="section-1"></div>
-                    <div data-poke-card class="section-2 poke-card">
-                        <div data-poke-name class="poke-name">Pokedex</div>
-                        <div data-poke-img-container class="img-container">
-                            <img data-poke-img class="poke-img" src="img/poke-shadow.png"/>
-                        </div>
-                        <div data-poke-id class="poke-id"></div>
-                        <div data-poke-types class="poke-types"></div>
-                        <div data-poke-stats class="poke-stats"></div>
+                <div id="search-container">
+                    <input id="poke-input" type="text" name="pokemon" placeholder="Name / id" autocomplete="off" onkeyup="onKeyPressed(event)">
+                    
+                    <div id="search-btn" class="ball-container" onclick="pokeballPressed()">
+                        <div class="upper-half-ball"></div>
+                        <div class="bottom-half-ball"></div>
+                        <div class="center-ball"></div>
+                        <div class="center-line"></div>
                     </div>
-                    <div class="section-3"></div>
                 </div>
-                <form action="" onsubmit="searchPokemon(event)">
-                    <input type="text" name="pokemon" autocomplete="off">
-                </form>
+                <div data-poke-card id="pokedex">
+                    <div id="left">
+                        <div id="bg_curve1_left"></div>
+                        <div id="bg_curve2_left"></div>
+                        <div id="curve1_left">
+                            <div id="buttonGlass">
+                                <div id="reflect"></div>
+                            </div>
+                            <div id="miniButtonGlass1"></div>
+                            <div id="miniButtonGlass2"></div>
+                            <div id="miniButtonGlass3"></div>
+                        </div>
+                        <div id="curve2_left">
+                            <div id="junction">
+                                <div id="junction1"></div>
+                                <div id="junction2"></div>
+                            </div>
+                        </div>
+                        <div id="screen">
+                            <div id="topPicture">
+                                <div id="buttontopPicture1"></div>
+                                <div id="buttontopPicture2"></div>
+                            </div>
+                            <div data-poke-img-container id="picture">
+                                <img data-poke-img src="img/poke-shadow.png" alt="poke-img" height="170"/>
+                            </div>
+                            <div id="buttonbottomPicture"></div>
+                            <div id="speakers">
+                                <div class="sp"></div>
+                                <div class="sp"></div>
+                                <div class="sp"></div>
+                                <div class="sp"></div>
+                            </div>
+                        </div>
+                        <div id="bigbluebutton"></div>
+                        <div id="barbutton1"></div>
+                        <div id="barbutton2"></div>
+                        <div id="cross">
+                            <div id="leftcross">
+                                <div id="leftT"></div>
+                            </div>
+                            <div id="topcross">
+                                <div id="upT"></div>
+                            </div>
+                            <div id="rightcross">
+                                <div id="rightT"></div>
+                            </div>
+                            <div id="midcross">
+                                <div id="midCircle"></div>
+                            </div>
+                            <div id="botcross">
+                                <div id="downT"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="right">
+                        <div id="stats">
+                            <div data-poke-name class="poke-name">Pokedex</div>
+                            <div data-poke-id class="poke-id"></div>
+                            <div data-poke-types class="poke-types"></div>
+                            <div data-poke-stats class="poke-stats"></div>
+                        </div>
+                        <div id="blueButtons1">
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                        </div>
+                        <div id="blueButtons2">
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                            <div class="blueButton"></div>
+                        </div>
+                        <div id="bg_curve1_right"></div>
+                        <div id="bg_curve2_right"></div>
+                        <div id="curve1_right"></div>
+                        <div id="curve2_right"></div>
+                    </div>
+                </div>
+                
             </div>
         </main>
     </body>
-</html>
+</html>   

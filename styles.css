@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 header {
@@ -20,6 +19,904 @@ header {
     margin: 0 auto;
 }
 
-.poke-img {
-    width: 300px;
+/*
+  _____      _            _            
+ |  __ \    | |          | |           
+ | |__) |__ | | _____  __| | _____  __ 
+ |  ___/ _ \| |/ / _ \/ _` |/ _ \ \/ / 
+ | |  | (_) |   <  __/ (_| |  __/>  <  
+ |_|   \___/|_|\_\___|\__,_|\___/_/\_\ 
+                                       
+*/
+
+/* Define y centra toda la estructura de la pokedex */
+
+@media all { 
+
+	div#pokedex {
+		width: 750px;
+		margin: 50px auto 0 auto;
+	}
+
+	div#left {
+		width: 400px;
+		height: 500px;
+		float: left;
+		position: relative;
+		z-index: 1;
+	}
+
+	div#right {
+		width: 350px;
+		height: 500px;
+		float: left;
+		position: relative;
+	}
+}
+
+
+
+#pokedex { /* Container de la pokedex */
+
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  /* Origin
+  width: 750px;
+	margin: 50px auto 0 auto;
+  */
+}
+
+#left {
+
+    width: 400px;
+	height: 500px;
+	float: left;
+	position: relative;
+	z-index: 1;
+}
+
+#bg_curve1_left { /* Base parte alta pokedex */
+
+    width: 400px;
+	height: 80px;
+	background-color: #8b0000;
+
+	border-top-left-radius: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-moz-border-top-left-radius: 30px;
+	-o-border-top-left-radius: 30px;
+}
+
+#bg_curve2_left { /* Base parte baja pokedex */
+
+	width: 400px;
+	height: 420px;
+	background-color: #c00d0d;
+
+	box-shadow: -10px 9px #5e0000;
+	-webkit-box-shadow: -10px 9px #5e0000;
+	-moz-box-shadow: -10px 9px #5e0000;
+	-o-box-shadow: -10px 9px #5e0000;
+
+	border-bottom-left-radius: 30px;
+	-webkit-border-bottom-left-radius: 30px;
+	-moz-border-bottom-left-radius: 30px;
+	-o-border-bottom-left-radius: 30px;
+}
+
+/* Inicio de la sección de la curva izquierda de la base alta */
+
+#curve1_left { /* Curva izquierda base alta */
+	
+	width: 201px;
+	height: 85px;
+	background-color: #8b0000;
+	float: left;
+	padding: 15px 0 0 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	box-shadow: -10px 9px #5e0000;
+	-webkit-box-shadow: -10px 9px #5e0000;
+	-moz-box-shadow: -10px 9px #5e0000;
+	-o-box-shadow: -10px 9px #5e0000;
+
+	border-bottom-right-radius: 85px 60px;
+	-webkit-border-bottom-right-radius: 85px 60px;
+	-moz-border-bottom-right-radius: 85px 60px;
+	-o-border-bottom-right-radius: 85px 60px;
+
+	border-top-left-radius: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-moz-border-top-left-radius: 30px;
+	-o-border-top-left-radius: 30px;
+}
+
+#buttonGlass { /* Botón redondo azul sin brillo */
+
+	width: 60px;
+	height: 60px;
+	margin-right: 15px;
+	border: 5px solid #fff;
+	float: left;
+
+	box-shadow: 0 0 10px #490000;
+	-webkit-box-shadow: 0 0 10px #490000;
+	-moz-box-shadow: 0 0 10px #490000;
+	-o-box-shadow: 0 0 10px #490000;
+		
+	background: radial-gradient(#05fbfb, #29abe3);
+	background: -webkit-radial-gradient(#05fbfb, #29abe3);
+	background: -moz-radial-gradient(#05fbfb, #29abe3);
+	background: -o-radial-gradient(#05fbfb, #29abe3);
+		
+	border-radius: 35px;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	-o-border-radius: 35px;
+}
+
+#reflect { /* Brillo del botón azul */
+	
+	width: 30px;
+	height: 18px;
+	margin: 3px 0 0 15px;
+	background: #fff;
+	opacity: 0.6;
+
+	border-radius: 15px 9px;
+	-webkit-border-radius: 15px 9px;
+	-moz-border-radius: 15px 9px;
+	-o-border-radius: 15px 9px;    
+}
+
+#miniButtonGlass1 { /* Botón rojo parte superior */
+	
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	float: left;
+
+	box-shadow: 0 0 10px #490000;
+	-webkit-box-shadow: 0 0 10px #490000;
+	-moz-box-shadow: 0 0 10px #490000;
+	-o-box-shadow: 0 0 10px #490000;
+
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+		
+	background: radial-gradient(#fb7b7b, #fb0505);
+	background: -webkit-radial-gradient(#fb7b7b, #fb0505);
+	background: -moz-radial-gradient(#fb7b7b, #fb0505);
+	background: -o-radial-gradient(#fb7b7b, #fb0505);
+}
+
+#miniButtonGlass2 { /* Botón amarillo parte superior */
+	
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	float: left;
+
+	box-shadow: 0 0 10px #490000;
+	-webkit-box-shadow: 0 0 10px #490000;
+	-moz-box-shadow: 0 0 10px #490000;
+	-o-box-shadow: 0 0 10px #490000;
+
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+		
+	background: radial-gradient(#fbfb9b, #fbfb05);
+	background: -webkit-radial-gradient(#fbfb9b, #fbfb05);
+	background: -moz-radial-gradient(#fbfb9b, #fbfb05);
+	background: -o-radial-gradient(#fbfb9b, #fbfb05);
+}
+
+div#miniButtonGlass3 { /* Botón verde parte superior */
+	
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+	float: left;
+
+	box-shadow: 0 0 10px #490000;
+	-webkit-box-shadow: 0 0 10px #490000;
+	-moz-box-shadow: 0 0 10px #490000;
+	-o-box-shadow: 0 0 10px #490000;
+
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+		
+	background: radial-gradient(#b0fb7b, #50fb05);
+	background: -webkit-radial-gradient(#b0fb7b, #50fb05);
+	background: -moz-radial-gradient(#b0fb7b, #50fb05);
+	background: -o-radial-gradient(#b0fb7b, #50fb05);
+}
+
+/* Fin de la sección de la  curva izquierda de la base alta */
+
+/* Inicio de la sección de la curza izquierda de la base alta */
+
+#curve2_left { /* Curva derecha parte alta */
+	
+	width: 216px;
+	height: 451px;
+	background-color: #c00d0d;
+	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	border-top-left-radius:85px 60px;
+	-webkit-border-top-left-radius: 85px 60px;
+	-moz-border-top-left-radius: 85px 60px;
+	-o-border-top-left-radius: 85px 60px;
+}
+
+#junction { /* Base de la junta de unión de las dos partes */
+	
+	width: 60px;
+	height: 451px;
+	float: right;
+		
+	background: linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);	
+	background: -webkit-linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);
+	background: -moz-linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);
+	background: -o-linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);
+}
+
+#junction1 { /* Junta de unión de la parte alta */
+	
+	height: 40px;
+	background-color: #5e0000;
+	opacity: 0.3;
+	margin-top: 50px;
+	margin-bottom: 262px;
+	border-top: 2px solid #330000;
+	border-bottom: 2px solid #330000;
+}
+
+#junction2 { /* Junta de unión de la parte baja */
+	
+	height: 40px;
+	background-color: #5e0000;
+	opacity: 0.3;
+	border-top: 2px solid #330000;
+	border-bottom: 2px solid #330000;
+}
+
+/* FIN DE DE LA BASE Y DE LA PARTE ALTA */
+
+/* INICIO DE LA PANTALLA*/
+
+#screen { /* Base gris de la pantalla */
+	
+	height: 245px;
+	width: 260px;
+	padding: 0 20px;
+	background-color: #b0b0b0;
+	float:left;
+	position: absolute;
+	top: 130px;
+	left: 19px;
+
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+
+#screen:after { /* Corte de la esquina inferior izquierda */
+	
+	content: "";
+	border-top: 40px solid #b0b0b0;
+	border-left: 40px solid #c00d0d;
+	height: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+/* Botones superiores pantalla */
+
+#topPicture {/* Centra los botones de la parte superior de la pantalla */
+	
+	margin: 6px auto;
+	width: 40px;
+}
+
+#buttontopPicture1, #buttontopPicture2 {/* Botones superiores de la pantalla*/
+	
+	height: 8px;
+	width: 8px;
+	background-color: #c00d0d;
+	border: 1px solid #000;
+	float: left;
+
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+
+#buttontopPicture1 { /* Separa el botón izquierdo superior del derecho mediante un margin-right */
+	
+	margin-right: 20px;
+}
+
+/* Pantalla */
+
+#picture {/* Contenedor de la imagen o pantalla blanca */
+	
+	height: 175px;
+	width: 254px;
+	margin-top: 20px;
+	margin-bottom: 9px;
+	background-color: #fff;
+	border: 3px solid #494949;
+	clear: both;
+
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+
+#picture img { /* Centra la imagen en la pantalla */
+	
+	display: block;
+	margin: 0 auto;
+}
+
+/* Botones inferiores pantalla */
+
+#buttonbottomPicture { /* Botón rojo inferior pantalla */
+	height: 26px;
+	width: 26px;
+	background-color: #c00d0d;
+	margin-left: 35px;
+	float: left;
+
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+
+	box-shadow: -2px 1px #5e0000;
+	-webkit-box-shadow: -2px 1px #5e0000;
+	-moz-box-shadow: -2px 1px #5e0000;
+	-o-box-shadow: -2px 1px #5e0000;
+
+	background: linear-gradient(top, #c00d0d 0%, #8b0000 80%);	
+	background: -webkit-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
+	background: -moz-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
+	background: -o-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
+}
+
+#speakers { /* centra y ajusta la salida de sonido de la parte inferior de la pantalla */
+  
+	float: right;
+	width: 75px;
+	height: 25px;
+	margin-right: 20px;
+}
+
+.sp { /* Salida de sonido parte inferior de la pantalla */
+	
+	height: 3px;
+	margin-bottom: 5px;
+	background-color: #494949;
+
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+	}
+
+/* FINAL DE LA PANTALLA */
+/* INICIO DE LOS BOTONES DE LA PARTE BAJA */
+
+#bigbluebutton { /* Botón azul parte inferior */
+	
+	height: 50px;
+	width: 50px;
+	background-color: #000;
+	position: absolute;
+	top: 395px;
+	left: 30px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+
+	background: linear-gradient(top, #307bfb 0%, #0530e5 80%);	
+	background: -webkit-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+	background: -moz-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+	background: -o-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+
+	box-shadow: -3px 2px #001c91;
+	-webkit-box-shadow: -3px 2px #001c91;
+	-moz-box-shadow: -3px 2px #001c91;
+	-o-box-shadow: -3px 2px #001c91;
+}
+
+#barbutton1 { /* Primer botón alargado inferior empezando por la izquierda */
+	height: 13px;
+	width: 50px;
+	position: absolute;
+	top: 405px;
+	left: 100px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+
+	background: linear-gradient(top, #50fb05 0%, #057b05 100%);	
+	background: -webkit-linear-gradient(top, #50fb05 0%, #057b05 100%);
+	background: -moz-linear-gradient(top, #50fb05 0%, #057b05 100%);
+	background: -o-linear-gradient(top, #50fb05 0%, #057b05 100%);
+
+	box-shadow: -1px 2px #004200;
+	-webkit-box-shadow: -1px 2px #004200;
+	-moz-box-shadow: -1px 2px #004200;
+	-o-box-shadow: -1px 2px #004200;
+}
+ 
+#barbutton2 { /* Segundo botón alargado inferior */
+	
+	height: 13px;
+	width: 50px;
+	position: absolute;
+	top: 405px;
+	left: 165px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+
+	background: linear-gradient(top, #fb6505 0%, #bb0505 100%);	
+	background: -webkit-linear-gradient(top, #fb6505 0%, #bb0505 100%);
+	background: -moz-linear-gradient(top, #fb6505 0%, #bb0505 100%);
+	background: -o-linear-gradient(top, #fb6505 0%, #bb0505 100%);
+
+	box-shadow: -1px 2px #7b0000;
+	-webkit-box-shadow: -1px 2px #7b0000;
+	-moz-box-shadow: -1px 2px #7b0000;
+	-o-box-shadow: -1px 2px #7b0000;
+}
+
+#cross {
+
+	width: 90px;
+	height: 90px;
+	position: absolute;
+	top: 394px;
+	left: 230px;
+}
+
+#leftcross { /* Base botón izquierdo del botón cruz */
+
+	width: 30px;
+	height: 30px;
+	background-color: #222;
+	z-index: 1;
+	position: absolute;
+	left: 0;
+	top: 30px;
+
+	box-shadow: -3px 2px #010101;
+	-webkit-box-shadow: -3px 2px #010101;
+	-moz-box-shadow: -3px 2px #010101;
+	-o-box-shadow: -3px 2px #010101;
+
+	border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+
+	border-bottom-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-bottom-left-radius: 5px;
+	-o-border-bottom-left-radius: 5px;
+}
+
+#leftT { /* Trinagulo botón izquierdo del botón cruz */
+	
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-right: 10px solid #111;
+	border-bottom: 10px solid transparent;
+	position: absolute;
+	top: 5px;
+	left: 4px;
+}
+
+#topcross { /* Base botón superior del botón cruz */
+
+	width: 30px;
+	height: 30px;
+	background-color: #222;
+	position: absolute;
+	top: 0;
+	left: 30px;
+
+	box-shadow: -3px 2px #010101;
+	-webkit-box-shadow: -3px 2px #010101;
+	-moz-box-shadow: -3px 2px #010101;
+	-o-box-shadow: -3px 2px #010101;
+
+	border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+
+	border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+}
+
+#upT { /* Trinagulo botón superior del botón cruz */
+	
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #111;
+	position: absolute;
+	top: 5px;
+	left: 4px;
+}
+
+#rightcross { /* Base botón derecho del botón cruz */
+  
+	width: 30px;
+	height: 30px;
+	background-color: #222;
+	position: absolute;
+	top: 30px;
+	right: 0;
+
+	box-shadow: -3px 2px #010101;
+	-webkit-box-shadow: -3px 2px #010101;
+	-moz-box-shadow: -3px 2px #010101;
+	-o-box-shadow: -3px 2px #010101;
+
+	border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+
+	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	-o-border-bottom-right-radius: 5px;
+}
+
+#rightT { /* Trinagulo botón derecho del botón cruz */
+  
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-left: 10px solid #111;
+	border-bottom: 10px solid transparent;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+#midcross { /* Base botón medio del botón cruz */
+  
+	width: 30px;
+	height: 30px;
+	background-color: #222;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+
+	box-shadow: -3px 2px #010101;
+	-webkit-box-shadow: -3px 2px #010101;
+	-moz-box-shadow: -3px 2px #010101;
+	-o-box-shadow: -3px 2px #010101;
+}
+
+#midCircle { /* Circulo botón medio del botón cruz */
+  
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 5px;
+	left: 4px;
+
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+
+	background: radial-gradient(#111, #222);
+	background: -webkit-radial-gradient(#111, #222);
+	background: -moz-radial-gradient(#111, #222);
+	background: -o-radial-gradient(#111, #222);
+}
+
+#botcross { /* Base botón inferior del botón cruz */
+  
+	width: 30px;
+	height: 30px;
+	background-color: #222;
+	position: absolute;
+	bottom: 0;
+	left: 30px;
+
+	box-shadow: -3px 2px #010101;
+	-webkit-box-shadow: -3px 2px #010101;
+	-moz-box-shadow: -3px 2px #010101;
+	-o-box-shadow: -3px 2px #010101;
+
+	border-bottom-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-bottom-left-radius: 5px;
+	-o-border-bottom-left-radius: 5px;
+
+	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	-o-border-bottom-right-radius: 5px;
+}
+
+#downT { /* Trinagulo botón inferior del botón cruz */
+  
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #111;
+	position: absolute;
+	bottom: 5px;
+	left: 4px;
+}
+
+/* FIN DE LA PARTE IZQUIERDA DE LA POKEDEX */
+
+/* INICIO DE LA PARTE DERECHA DE LA POKEDEX */
+
+#curve1_right { /* Curva de la parte izquierda de la tapa */
+	
+	width: 166px;
+	height: 451px;
+	background-color: #c00d0d;
+	float: right;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	border-top-right-radius:85px 60px;
+	-webkit-border-right-left-radius: 85px 60px;
+	-moz-border-right-left-radius: 85px 60px;
+	-o-border-right-left-radius: 85px 60px;
+}
+
+#curve2_right { /* Curva de la parte derecha de la tapa */
+	
+	width: 216px;
+	height: 100px;
+	background-color: #fff;
+	float: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	border-bottom-left-radius: 85px 60px;
+	-webkit-border-bottom-left-radius: 85px 60px;
+	-moz-border-bottom-left-radius: 85px 60px;
+	-o-border-bottom-left-radius: 85px 60px;
+}
+
+#bg_curve1_right { /* Base de la parte izquierda de la tapa */
+	
+	width: 350px;
+	height: 80px;
+	background-color: #fff;
+
+	border-top-right-radius: 30px;
+	-webkit-border-top-right-radius: 30px;
+	-moz-border-top-right-radius: 30px;
+	-o-border-top-right-radius: 30px;
+}
+
+#bg_curve2_right { /* Base de la parte derecha de la tapa */
+	
+	width: 350px;
+	height: 420px;
+	background-color: #c00d0d;
+
+	border-bottom-right-radius: 30px;
+	-webkit-border-bottom-right-radius: 30px;
+	-moz-border-bottom-right-radius: 30px;
+	-o-border-bottom-right-radius: 30px;
+
+	box-shadow: -10px 9px #5e0000;
+	-webkit-box-shadow: -10px 9px #5e0000;
+	-moz-box-shadow: -10px 9px #5e0000;
+	-o-box-shadow: -10px 9px #5e0000;
+}
+  
+  
+#stats { /* Pantalla informativa verde */
+  
+	height: 225px;
+	width: 280px;
+	padding: 10px;
+	background-color: #30da0c;
+	z-index: 1;
+	font-size: 13px;
+	font-family: arial, sans-serif;
+	position: absolute;
+	top: 130px;
+	left: 25px;
+
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+
+	box-shadow: 0 0 20px #003300 inset;
+	-webkit-box-shadow: 0 0 20px #003300 inset;
+	-moz-box-shadow: 0 0 20px #003300 inset;
+	-o-box-shadow: 0 0 20px #003300 inset;
+}
+  
+.blueButton { /* Botones azules */
+	
+	height: 35px;
+	width : 45px;
+	background-color: #003300;
+	float: left;
+	margin-right: 7px;
+
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+
+	background: linear-gradient(top, #307bfb 0%, #0530e5 80%);	
+	background: -webkit-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+	background: -moz-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+	background: -o-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+
+	box-shadow: -1px 2px #001c91;
+	-webkit-box-shadow: -1px 2px #001c91;
+	-moz-box-shadow: -1px 2px #001c91;
+	-o-box-shadow: -1px 2px #001c91;
+}
+  
+#blueButtons1 { /* Posicionamiento primera fila btns azules */
+    
+	z-index: 1;
+	position: absolute;
+	top: 395px;
+	left: 49px;
+}
+  
+/* Posicionamiento primera fila btns azules */
+
+#blueButtons2 { 
+    
+    z-index: 1;
+    position: absolute;
+    top: 435px;
+    left: 49px;
+}
+
+
+/*
+   _____                     _               
+  / ____|                   | |              
+ | (___   ___  __ _ _ __ ___| |__   ___ _ __ 
+  \___ \ / _ \/ _` | '__/ __| '_ \ / _ \ '__|
+  ____) |  __/ (_| | | | (__| | | |  __/ |   
+ |_____/ \___|\__,_|_|  \___|_| |_|\___|_|   
+                                             
+*/
+
+#search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+  
+/* Poke-ball */
+
+.ball-container {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+    animation: shake 1.5s ease-in infinite;
+    animation-play-state: paused;
+}
+  
+@keyframes shake {
+    0% {
+      transform: rotate(5deg);
+    }
+    5% {
+      transform: rotate(-5deg);
+    }
+    10% {
+      transform: rotate(5deg);
+    }
+    15% {
+      transform: rotate(-5deg);
+    }
+    20% {
+      transform: rotate(5deg);
+    }
+    25% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+}
+    
+.ball-container:hover {
+    cursor: pointer;
+    animation-play-state: running;
+}
+    
+.upper-half-ball {
+    position: absolute;
+    width: 100%;
+    height: 42%;
+    background-color: #8b0000;
+ }
+  
+.bottom-half-ball {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 42%;
+    background-color: #f2f2f2;
+}
+  
+.center-ball {
+    background-color: white;
+    width: 20%;
+    height: 20%;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+.center-line {
+    background: black;
+    height: 100%;
+    width: 100%;
+}
+  
+input {
+    text-align: center;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
 }
