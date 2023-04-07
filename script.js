@@ -6,22 +6,40 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
-   
+
+// const pokeInput = document.querySelector('#poke-input')
+const pokeInput = document.getElementById('poke-input')
+
+// Input key pressed
+const onKeyPressed = event => {  
+
+    if (event.keyCode === 13) {
+        const value = pokeInput.value
+        pokeInput.value = ""
+        searchPokemon(value)
+    }
+}
+
+// Pokeball pressed
+const pokeballPressed = () => {
+    const value = pokeInput.value
+    pokeInput.value = ""
+    searchPokemon(value)
+}
+
 // onsubmit form function
-const searchPokemon = event => {
-    // Cancel the submit of the form
-    event.preventDefault();
-    const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
-        .then(data => data.json())
-        //Send the response to renderPokemonData function
-        .then(response => renderPokemonData(response))
-        .catch(err => renderNotFound())
+const searchPokemon = (pokemon) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
+    .then(data => data.json())
+    //Send the response to renderPokemonData function
+    .then(response => renderPokemonData(response))
+    .catch(err => renderNotFound())
 }
 
 const renderPokemonData = data => {
     // Take the predetermined frontal image of sprites
-    const sprite = data.sprites.front_default;
+    //const sprite = data.sprites.front_default;
+    const sprite = data.sprites.versions['generation-v']['black-white'].animated.front_default;
     // Take stats and types
     const { stats, types } = data;
     // console.log(data);
