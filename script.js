@@ -6,12 +6,15 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
-
 // const pokeInput = document.querySelector('#poke-input')
 const pokeInput = document.getElementById('poke-input')
 
+// Stores the current pokemon ID in a variable
+let currentPokemonId = 0
+
+
 // Input key pressed
-const onKeyPressed = event => {  
+const onKeyPressed = (event) => {  
 
     if (event.keyCode === 13) {
         const value = pokeInput.value
@@ -27,27 +30,65 @@ const pokeballPressed = () => {
     searchPokemon(value)
 }
 
-// onsubmit form function
+// Next Pokemon
+const nextPokemon = (currentId) => {
+    const nextId = currentId + 1
+    searchPokemon(nextId)
+}
+
+// Handle nextPokemon click
+const handleNextPokemon = () => {
+    if (currentPokemonId !== null) {
+        nextPokemon(currentPokemonId)
+    }
+    else {
+        nextPokemon(0)
+    }
+}
+
+// Before Pokemon
+const beforePokemon = (currentId) => {
+    const beforeId = currentId - 1
+    searchPokemon(beforeId)
+}
+
+// Handle beforePokemon click
+const handleBeforePokemon = () => {
+    if (currentPokemonId !== null && currentPokemonId > 1) {
+        beforePokemon(currentPokemonId)
+    }
+    else {
+        beforePokemon(2)
+    }
+}
+
+// Fetch API
 const searchPokemon = (pokemon) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`)
+    const pokemonString = typeof pokemon === 'number' ? pokemon.toString() : pokemon
+
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonString.toLowerCase()}`)
     .then(data => data.json())
     //Send the response to renderPokemonData function
     .then(response => renderPokemonData(response))
     .catch(err => renderNotFound())
 }
 
-const renderPokemonData = data => {
+const renderPokemonData = (data) => {
+    console.log(data)
     // Take the predetermined frontal image of sprites
     //const sprite = data.sprites.front_default;
     const sprite = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+    const backSprite = data.sprites.versions['generation-v']['black-white'].animated.back_default;
     // Take stats and types
     const { stats, types } = data;
-    // console.log(data);
-    
+
     // Fill the elements with the data received
     pokeName.textContent = data.name;
     pokeImg.setAttribute('src', sprite);
     pokeId.textContent = `Nº ${data.id}`;
+    // Update Current Pokemon ID
+    currentPokemonId = data.id
+
     renderPokemonTypes(types);
     renderPokemonStats(stats);
 }
@@ -62,7 +103,7 @@ const renderPokemonTypes = (types) => {
     });
 }
 
-const renderPokemonStats = stats => {
+const renderPokemonStats = (stats) => {
     pokeStats.innerHTML = '';
     stats.forEach(stat => {
         const statElement = document.createElement("div");
