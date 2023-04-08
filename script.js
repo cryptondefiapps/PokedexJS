@@ -11,7 +11,8 @@ const pokeInput = document.getElementById('poke-input')
 
 // Stores the current pokemon ID in a variable
 let currentPokemonId = 0
-
+let currentPokeSprite = 0
+const pokeSprite = []
 
 // Input key pressed
 const onKeyPressed = (event) => {  
@@ -62,6 +63,20 @@ const handleBeforePokemon = () => {
     }
 }
 
+// Handle change pokeSprite front or back
+handlePokeSpriteChange = (spritePos) => {
+    if ( pokeSprite[0] === undefined || pokeSprite[1] === undefined ) return
+    
+    if (spritePos === 0) {
+        if (pokeSprite[0] === null) return
+        pokeImg.setAttribute('src', pokeSprite[0]);
+    }
+    else {
+        if (pokeSprite[1] === null) return
+        pokeImg.setAttribute('src', pokeSprite[1]);
+    }
+}
+
 // Fetch API
 const searchPokemon = (pokemon) => {
     const pokemonString = typeof pokemon === 'number' ? pokemon.toString() : pokemon
@@ -75,17 +90,27 @@ const searchPokemon = (pokemon) => {
 
 const renderPokemonData = (data) => {
     console.log(data)
-    // Take the predetermined frontal image of sprites
-    //const sprite = data.sprites.front_default;
-    const sprite = data.sprites.versions['generation-v']['black-white'].animated.front_default;
-    const backSprite = data.sprites.versions['generation-v']['black-white'].animated.back_default;
+    // Front & Back Sprites
+    if (data.sprites.versions['generation-v']['black-white'].animated.front_default === null || data.sprites.versions['generation-v']['black-white'].animated.back_default === null) {
+        if (data.sprites.front_default === null) return
+        pokeSprite[0] = data.sprites.front_default
+        pokeSprite[1] = data.sprites.back_default
+    }
+    else {
+        pokeSprite[0] = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+        pokeSprite[1] = data.sprites.versions['generation-v']['black-white'].animated.back_default;
+    }
+
+    
+
     // Take stats and types
     const { stats, types } = data;
 
     // Fill the elements with the data received
     pokeName.textContent = data.name;
-    pokeImg.setAttribute('src', sprite);
+    pokeImg.setAttribute('src', pokeSprite[0]);
     pokeId.textContent = `Nº ${data.id}`;
+
     // Update Current Pokemon ID
     currentPokemonId = data.id
 
@@ -117,7 +142,7 @@ const renderPokemonStats = (stats) => {
     });
 }
 
-renderNotFound = () => {
+const renderNotFound = () => {
     console.log('errooor')
     pokeName.textContent = 'Pokemon not found';
     pokeImg.setAttribute('src', 'img/poke-shadow.png');
