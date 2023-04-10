@@ -61,8 +61,8 @@
                             </div>
                         </div>
                         <div id="bigbluebutton"></div>
-                        <div id="barbutton1"></div>
-                        <div id="barbutton2"></div>
+                        <div id="barbutton1" onclick="greenButtonPressed()"></div>
+                        <div id="barbutton2" onclick="redButtonPressed()"></div>
                         <div id="cross">
                             <div id="leftcross" onclick="handleBeforePokemon()">
                                 <div id="leftT"></div>
@@ -83,24 +83,24 @@
                     </div>
                     <div id="right">
                         <div id="stats">
-                            <div data-poke-name class="poke-name">Pokedex</div>
-                            <div data-poke-id class="poke-id"></div>
-                            <div data-poke-types class="poke-types"></div>
-                            <div data-poke-stats class="poke-stats"></div>
+                            <div data-poke-name id="poke-name">Pokedex</div>
+                            <div data-poke-id id="poke-id"></div>
+                            <div data-poke-types id="poke-types"></div>
+                            <div data-poke-stats id="poke-stats"></div>
                         </div>
                         <div id="blueButtons1">
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(0, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(1, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(2, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(3, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(4, event)"></div>
                         </div>
                         <div id="blueButtons2">
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
-                            <div class="blueButton"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(5, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(6, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(7, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(8, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(9, event)"></div>
                         </div>
                         <div id="bg_curve1_right"></div>
                         <div id="bg_curve2_right"></div>

@@ -9,9 +9,14 @@ const pokeStats = document.querySelector('[data-poke-stats]');
 // const pokeInput = document.querySelector('#poke-input')
 const pokeInput = document.getElementById('poke-input')
 
+
 // Stores the current pokemon ID in a variable
 let currentPokemonId = 0
 let currentPokeSprite = 0
+let savedId = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+let greenButtonPress = false
+let redButtonPress = false
+let blueButtonGroupPress = false
 const pokeSprite = []
 
 // Input key pressed
@@ -64,7 +69,7 @@ const handleBeforePokemon = () => {
 }
 
 // Handle change pokeSprite front or back
-handlePokeSpriteChange = (spritePos) => {
+const handlePokeSpriteChange = (spritePos) => {
     if ( pokeSprite[0] === undefined || pokeSprite[1] === undefined ) return
     
     if (spritePos === 0) {
@@ -74,6 +79,82 @@ handlePokeSpriteChange = (spritePos) => {
     else {
         if (pokeSprite[1] === null) return
         pokeImg.setAttribute('src', pokeSprite[1]);
+    }
+}
+
+// Green Button is Pressed
+const greenButtonPressed = () => {
+    console.log('greenButtonPressed')
+    if (redButtonPress === false && greenButtonPress === false) {
+        greenButtonPress = true
+        console.log('greenButton is true ' + greenButtonPress)
+    }
+    else if (redButtonPress === true) {
+        redButtonPress = false
+        greenButtonPress = true 
+        console.log('Green button  is: ' + greenButtonPress + ',' + ' Red button is: ' + redButtonPress)
+    }
+}
+
+// Red Button is Pressed
+const redButtonPressed = () => {
+    console.log('redButtonPressed')
+    if (redButtonPress === false && greenButtonPress === false) {
+        redButtonPress = true
+        console.log('redButton is true ' + redButtonPress)
+    }
+    else if (greenButtonPress === true) {
+        greenButtonPress = false
+        redButtonPress = true
+        console.log('Red button is: ' + redButtonPress + ',' + ' Green button is: ' + greenButtonPress)
+    }
+}
+
+// Blue Button Group is Pressed
+const blueButtonGroupPressed = (position, event) => {
+    blueButtonGroupPress = true
+    const button = event.target
+    if (greenButtonPress === true) {
+        handleChangeSavedId(savedId, position, currentPokemonId)
+        blueButtonGroupPress = false
+        greenButtonPress = false
+        if (savedId[position] > 0 && pokeName.textContent !== 'Pokemon not found') {
+            console.log(savedId[position])
+            button.style.background = 'linear-gradient(top, #f3860b 0%, #e5c005 80%)'
+            button.style.background = '-webkit-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
+            button.style.background = '-moz-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
+            button.style.background = '-o-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
+        }
+        console.log('new registered id in position: ' + position)
+
+    }
+    else if (redButtonPress === true) {
+        handleChangeSavedId(savedId, position, 0)
+        blueButtonGroupPress = false
+        redButtonPress = false
+        button.style.background = ''
+        
+        console.log('id has been removed in position: ' + position)
+    }
+    else if (greenButtonPress === false && redButtonPress === false) {
+        if (savedId[position] === 0) return
+        pokemon = savedId[position]
+        searchPokemon(pokemon)
+        blueButtonGroupPress = false
+        console.log('We execute the search for the pokemon registered in position: ' + position)
+    }
+    return
+}
+
+
+// Handle change saved ID
+const handleChangeSavedId = (savedId, position, newId) => {
+    console.log(savedId)
+    if (position >= 0 && position < savedId.length) {
+        savedId[position] = newId
+    }
+    else {
+        console.error ('index out of range')
     }
 }
 
