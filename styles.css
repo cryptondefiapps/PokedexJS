@@ -4,8 +4,16 @@
     padding: 0;
 }
 
+body {
+    background-color: #282525;
+}
+
 header {
-    background-color: #bf2e2e;
+    background-color: #a91f1ffa;
+}
+
+.logo {
+    padding: 10px;
 }
 
 #logo {
@@ -29,56 +37,52 @@ header {
                                        
 */
 
-/* Define y centra toda la estructura de la pokedex */
-
+/* Defines and centers the entire structure of the pokedex */
 @media all { 
 
-	div#pokedex {
-		width: 750px;
+	#pokedex {
+		width: 1000px;
 		margin: 50px auto 0 auto;
 	}
 
-	div#left {
-		width: 400px;
-		height: 500px;
+	#left {
+		width: 500px;
+		height: 600px;
 		float: left;
 		position: relative;
 		z-index: 1;
 	}
 
-	div#right {
-		width: 350px;
-		height: 500px;
+	#right {
+		width: 450px;
+		height: 600px;
 		float: left;
 		position: relative;
 	}
 }
 
 
-
-#pokedex { /* Container de la pokedex */
-
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  /* Origin
-  width: 750px;
-	margin: 50px auto 0 auto;
-  */
+/* Pokedex container */
+#pokedex { 
+  	max-width: 1000px;
+  	width: 100%;
+  	margin: 75px auto 0 auto;
+  
 }
 
-#left {
+/* LEFT PART OF THE POKEDEX */
 
-    width: 400px;
-	height: 500px;
+#left {
+    width: 500px;
+    height: 600px;
 	float: left;
 	position: relative;
 	z-index: 1;
 }
 
-#bg_curve1_left { /* Base parte alta pokedex */
-
-    width: 400px;
+/* Top pokedex */
+#bg_curve1_left { 
+    width: 500px;
 	height: 80px;
 	background-color: #8b0000;
 
@@ -88,10 +92,10 @@ header {
 	-o-border-top-left-radius: 30px;
 }
 
-#bg_curve2_left { /* Base parte baja pokedex */
-
-	width: 400px;
-	height: 420px;
+/* Bottom pokedex */
+#bg_curve2_left { 
+    width: 500px;
+    height: 520px;
 	background-color: #c00d0d;
 
 	box-shadow: -10px 9px #5e0000;
@@ -105,12 +109,10 @@ header {
 	-o-border-bottom-left-radius: 30px;
 }
 
-/* Inicio de la sección de la curva izquierda de la base alta */
-
-#curve1_left { /* Curva izquierda base alta */
-	
-	width: 201px;
-	height: 85px;
+/* Upper left curve */
+#curve1_left { 
+    width: 291px;
+    height: 95px;
 	background-color: #8b0000;
 	float: left;
 	padding: 15px 0 0 15px;
@@ -134,11 +136,11 @@ header {
 	-o-border-top-left-radius: 30px;
 }
 
-#buttonGlass { /* Botón redondo azul sin brillo */
-
+/* Blue round top button */
+#buttonGlass { 
 	width: 60px;
 	height: 60px;
-	margin-right: 15px;
+    margin-right: 20px;
 	border: 5px solid #fff;
 	float: left;
 
@@ -158,8 +160,8 @@ header {
 	-o-border-radius: 35px;
 }
 
-#reflect { /* Brillo del botón azul */
-	
+/* Blue button reflection */
+#reflect { 
 	width: 30px;
 	height: 18px;
 	margin: 3px 0 0 15px;
@@ -172,11 +174,11 @@ header {
 	-o-border-radius: 15px 9px;    
 }
 
-#miniButtonGlass1 { /* Botón rojo parte superior */
-	
+/* Top red button */
+#miniButtonGlass1 { 
 	width: 20px;
 	height: 20px;
-	margin-right: 10px;
+    margin-right: 15px;
 	float: left;
 
 	box-shadow: 0 0 10px #490000;
@@ -195,11 +197,11 @@ header {
 	background: -o-radial-gradient(#fb7b7b, #fb0505);
 }
 
-#miniButtonGlass2 { /* Botón amarillo parte superior */
-	
+/* Top yellow button */
+#miniButtonGlass2 {
 	width: 20px;
 	height: 20px;
-	margin-right: 10px;
+    margin-right: 15px;
 	float: left;
 
 	box-shadow: 0 0 10px #490000;
@@ -218,8 +220,8 @@ header {
 	background: -o-radial-gradient(#fbfb9b, #fbfb05);
 }
 
-div#miniButtonGlass3 { /* Botón verde parte superior */
-	
+/* Top green button */
+#miniButtonGlass3 {
 	width: 20px;
 	height: 20px;
 	margin-right: 10px;
@@ -241,14 +243,10 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	background: -o-radial-gradient(#b0fb7b, #50fb05);
 }
 
-/* Fin de la sección de la  curva izquierda de la base alta */
-
-/* Inicio de la sección de la curza izquierda de la base alta */
-
-#curve2_left { /* Curva derecha parte alta */
-	
+/* Upper right curve */
+#curve2_left {
 	width: 216px;
-	height: 451px;
+    height: 551px;
 	background-color: #c00d0d;
 	float: right;
 	position: absolute;
@@ -261,10 +259,10 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-top-left-radius: 85px 60px;
 }
 
-#junction { /* Base de la junta de unión de las dos partes */
-	
+/* Junction of the two parts */
+#junction {
 	width: 60px;
-	height: 451px;
+    height: 551px;
 	float: right;
 		
 	background: linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);	
@@ -273,39 +271,35 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	background: -o-linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);
 }
 
-#junction1 { /* Junta de unión de la parte alta */
-	
-	height: 40px;
+#junction1 { 
+    height: 50px;
 	background-color: #5e0000;
 	opacity: 0.3;
-	margin-top: 50px;
+    margin-top: 87px;
 	margin-bottom: 262px;
 	border-top: 2px solid #330000;
 	border-bottom: 2px solid #330000;
 }
 
-#junction2 { /* Junta de unión de la parte baja */
-	
-	height: 40px;
+#junction2 {
+    height: 50px;
 	background-color: #5e0000;
 	opacity: 0.3;
 	border-top: 2px solid #330000;
 	border-bottom: 2px solid #330000;
 }
 
-/* FIN DE DE LA BASE Y DE LA PARTE ALTA */
+/* SCREEN */
 
-/* INICIO DE LA PANTALLA*/
-
-#screen { /* Base gris de la pantalla */
-	
-	height: 245px;
-	width: 260px;
+/* Grey screen */
+#screen {
+    height: 345px;
+    width: 360px;
 	padding: 0 20px;
 	background-color: #b0b0b0;
 	float:left;
 	position: absolute;
-	top: 130px;
+    top: 137px;
 	left: 19px;
 
 	border-radius: 15px;
@@ -314,8 +308,8 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-radius: 15px;
 }
 
-#screen:after { /* Corte de la esquina inferior izquierda */
-	
+/* Lower left corner cut */
+#screen:after { 
 	content: "";
 	border-top: 40px solid #b0b0b0;
 	border-left: 40px solid #c00d0d;
@@ -325,16 +319,17 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	left: 0;
 }
 
-/* Botones superiores pantalla */
+/* Buttons at the top of the screen */
 
-#topPicture {/* Centra los botones de la parte superior de la pantalla */
+/* To center the buttons */
+#topPicture {
 	
 	margin: 6px auto;
 	width: 40px;
 }
 
-#buttontopPicture1, #buttontopPicture2 {/* Botones superiores de la pantalla*/
-	
+/* Buttons */
+#buttontopPicture1, #buttontopPicture2 {
 	height: 8px;
 	width: 8px;
 	background-color: #c00d0d;
@@ -347,17 +342,16 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-radius: 15px;
 }
 
-#buttontopPicture1 { /* Separa el botón izquierdo superior del derecho mediante un margin-right */
-	
+#buttontopPicture1 {
 	margin-right: 20px;
 }
 
-/* Pantalla */
+/* Screen */
 
-#picture {/* Contenedor de la imagen o pantalla blanca */
-	
-	height: 175px;
-	width: 254px;
+/* Image container */
+#picture {
+    height: 275px;
+    width: 354px;
 	margin-top: 20px;
 	margin-bottom: 9px;
 	background-color: #fff;
@@ -370,15 +364,16 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-radius: 15px;
 }
 
-#picture img { /* Centra la imagen en la pantalla */
-	
+/* Center the image on the screen */
+#picture img {
 	display: block;
-	margin: 0 auto;
+	margin: 38px auto;
 }
 
-/* Botones inferiores pantalla */
+/* Buttons below the screen */
 
-#buttonbottomPicture { /* Botón rojo inferior pantalla */
+/* Red button */
+#buttonbottomPicture {
 	height: 26px;
 	width: 26px;
 	background-color: #c00d0d;
@@ -401,16 +396,16 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	background: -o-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
 }
 
-#speakers { /* centra y ajusta la salida de sonido de la parte inferior de la pantalla */
-  
+/* Speakers */
+#speakers {
 	float: right;
 	width: 75px;
 	height: 25px;
 	margin-right: 20px;
 }
 
-.sp { /* Salida de sonido parte inferior de la pantalla */
-	
+/* Speaker */
+.sp { 
 	height: 3px;
 	margin-bottom: 5px;
 	background-color: #494949;
@@ -419,19 +414,18 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	-o-border-radius: 30px;
-	}
+}
 
-/* FINAL DE LA PANTALLA */
-/* INICIO DE LOS BOTONES DE LA PARTE BAJA */
+/* BUTTONS AT THE BOTTOM */
 
-#bigbluebutton { /* Botón azul parte inferior */
-	
-	height: 50px;
-	width: 50px;
+/* Blue button */
+#bigbluebutton {
+    height: 60px;
+    width: 60px;
 	background-color: #000;
 	position: absolute;
-	top: 395px;
-	left: 30px;
+    top: 502px;
+    left: 26px;
 
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
@@ -449,12 +443,13 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-box-shadow: -3px 2px #001c91;
 }
 
-#barbutton1 { /* Primer botón alargado inferior empezando por la izquierda */
+/* Green button */
+#barbutton1 {
 	height: 13px;
-	width: 50px;
+    width: 60px;
 	position: absolute;
-	top: 405px;
-	left: 100px;
+    top: 512px;
+    left: 130px;
 
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
@@ -471,14 +466,14 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-moz-box-shadow: -1px 2px #004200;
 	-o-box-shadow: -1px 2px #004200;
 }
- 
-#barbutton2 { /* Segundo botón alargado inferior */
-	
+
+/* Red button */
+#barbutton2 {
 	height: 13px;
-	width: 50px;
+    width: 60px;
 	position: absolute;
-	top: 405px;
-	left: 165px;
+    top: 512px;
+    left: 211px;
 
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
@@ -496,17 +491,16 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-box-shadow: -1px 2px #7b0000;
 }
 
+/* Cross button */
 #cross {
-
 	width: 90px;
 	height: 90px;
 	position: absolute;
-	top: 394px;
-	left: 230px;
+    top: 496px;
+    left: 307px;
 }
 
-#leftcross { /* Base botón izquierdo del botón cruz */
-
+#leftcross {
 	width: 30px;
 	height: 30px;
 	background-color: #222;
@@ -531,8 +525,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-bottom-left-radius: 5px;
 }
 
-#leftT { /* Trinagulo botón izquierdo del botón cruz */
-	
+#leftT {
 	width: 0;
 	height: 0;
 	border-top: 10px solid transparent;
@@ -543,8 +536,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	left: 4px;
 }
 
-#topcross { /* Base botón superior del botón cruz */
-
+#topcross {
 	width: 30px;
 	height: 30px;
 	background-color: #222;
@@ -568,8 +560,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-top-right-radius: 5px;
 }
 
-#upT { /* Trinagulo botón superior del botón cruz */
-	
+#upT {
 	width: 0;
 	height: 0;
 	border-left: 10px solid transparent;
@@ -580,8 +571,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	left: 4px;
 }
 
-#rightcross { /* Base botón derecho del botón cruz */
-  
+#rightcross {
 	width: 30px;
 	height: 30px;
 	background-color: #222;
@@ -605,8 +595,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-bottom-right-radius: 5px;
 }
 
-#rightT { /* Trinagulo botón derecho del botón cruz */
-  
+#rightT {
 	width: 0;
 	height: 0;
 	border-top: 10px solid transparent;
@@ -617,8 +606,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	right: 5px;
 }
 
-#midcross { /* Base botón medio del botón cruz */
-  
+#midcross {
 	width: 30px;
 	height: 30px;
 	background-color: #222;
@@ -632,8 +620,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-box-shadow: -3px 2px #010101;
 }
 
-#midCircle { /* Circulo botón medio del botón cruz */
-  
+#midCircle {
 	width: 20px;
 	height: 20px;
 	position: absolute;
@@ -651,8 +638,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	background: -o-radial-gradient(#111, #222);
 }
 
-#botcross { /* Base botón inferior del botón cruz */
-  
+#botcross {
 	width: 30px;
 	height: 30px;
 	background-color: #222;
@@ -676,8 +662,7 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-bottom-right-radius: 5px;
 }
 
-#downT { /* Trinagulo botón inferior del botón cruz */
-  
+#downT {
 	width: 0;
 	height: 0;
 	border-left: 10px solid transparent;
@@ -688,14 +673,12 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	left: 4px;
 }
 
-/* FIN DE LA PARTE IZQUIERDA DE LA POKEDEX */
+/* RIGHT PART OF THE POKEDEX */
 
-/* INICIO DE LA PARTE DERECHA DE LA POKEDEX */
-
-#curve1_right { /* Curva de la parte izquierda de la tapa */
-	
+/* Left curve */
+#curve1_right {
 	width: 166px;
-	height: 451px;
+    height: 552px;
 	background-color: #c00d0d;
 	float: right;
 	position: absolute;
@@ -708,11 +691,11 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-right-left-radius: 85px 60px;
 }
 
-#curve2_right { /* Curva de la parte derecha de la tapa */
-	
-	width: 216px;
+/* Right curve */
+#curve2_right {
+    width: 316px;
 	height: 100px;
-	background-color: #fff;
+    background-color: #282525;
 	float: left;
 	position: absolute;
 	top: 0;
@@ -724,11 +707,11 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-bottom-left-radius: 85px 60px;
 }
 
-#bg_curve1_right { /* Base de la parte izquierda de la tapa */
-	
-	width: 350px;
-	height: 80px;
-	background-color: #fff;
+/* Left side of the lid */
+#bg_curve1_right {
+    width: 450px;
+    height: 180px;
+    background-color: #282525;
 
 	border-top-right-radius: 30px;
 	-webkit-border-top-right-radius: 30px;
@@ -736,11 +719,13 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-o-border-top-right-radius: 30px;
 }
 
-#bg_curve2_right { /* Base de la parte derecha de la tapa */
-	
-	width: 350px;
-	height: 420px;
+/* Left side of the lid  */
+#bg_curve2_right { 
+    width: 450px;
+    height: 520px;
 	background-color: #c00d0d;
+    position: relative;
+    bottom: 100px;
 
 	border-bottom-right-radius: 30px;
 	-webkit-border-bottom-right-radius: 30px;
@@ -751,20 +736,20 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-webkit-box-shadow: -10px 9px #5e0000;
 	-moz-box-shadow: -10px 9px #5e0000;
 	-o-box-shadow: -10px 9px #5e0000;
+
 }
   
-  
-#stats { /* Pantalla informativa verde */
-  
-	height: 225px;
-	width: 280px;
+/* Green informative screen */
+#stats { 
+    height: 325px;
+    width: 380px;
 	padding: 10px;
 	background-color: #30da0c;
 	z-index: 1;
-	font-size: 13px;
-	font-family: arial, sans-serif;
+	font-size: 1.4rem;
+	font-family: coders-crux2, arial, sans-serif;
 	position: absolute;
-	top: 130px;
+    top: 137px;
 	left: 25px;
 
 	border-radius: 15px;
@@ -777,9 +762,47 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	-moz-box-shadow: 0 0 20px #003300 inset;
 	-o-box-shadow: 0 0 20px #003300 inset;
 }
-  
-.blueButton { /* Botones azules */
-	
+
+#poke-name {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+#poke-id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#poke-types {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#poke-types div {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px dashed black;
+}
+
+#poke-stats div {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+}
+
+/* Blue buttons */
+.blueButton { 
 	height: 35px;
 	width : 45px;
 	background-color: #003300;
@@ -795,28 +818,21 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 	background: -webkit-linear-gradient(top, #307bfb 0%, #0530e5 80%);
 	background: -moz-linear-gradient(top, #307bfb 0%, #0530e5 80%);
 	background: -o-linear-gradient(top, #307bfb 0%, #0530e5 80%);
-
-	box-shadow: -1px 2px #001c91;
-	-webkit-box-shadow: -1px 2px #001c91;
-	-moz-box-shadow: -1px 2px #001c91;
-	-o-box-shadow: -1px 2px #001c91;
 }
-  
-#blueButtons1 { /* Posicionamiento primera fila btns azules */
-    
+
+/* First row of blue buttons */
+#blueButtons1 { 
 	z-index: 1;
 	position: absolute;
-	top: 395px;
+    top: 502px;
 	left: 49px;
 }
   
-/* Posicionamiento primera fila btns azules */
-
+/* Second row of blue buttons */
 #blueButtons2 { 
-    
     z-index: 1;
     position: absolute;
-    top: 435px;
+    top: 542px;
     left: 49px;
 }
 
@@ -836,20 +852,23 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+	margin: 50px auto 90px auto;
 }
   
 /* Poke-ball */
-
 .ball-container {
     overflow: hidden;
     width: 60px;
     height: 60px;
     border: 2px solid black;
-    border-radius: 50%;
     position: relative;
     animation: shake 1.5s ease-in infinite;
     animation-play-state: paused;
+
+	border-radius:  50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
 }
   
 @keyframes shake {
@@ -901,11 +920,15 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
     width: 20%;
     height: 20%;
     border: 2px solid black;
-    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+	border-radius:  50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
 }
   
 .center-line {
@@ -917,6 +940,57 @@ div#miniButtonGlass3 { /* Botón verde parte superior */
 input {
     text-align: center;
     height: 40px;
-    border-radius: 4px;
     margin-right: 10px;
+
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+
+/*
+  ____       _                                _                 
+ |  _ \ ___ | | _____ _ __ ___   ___  _ __   (_)_ __ ___   __ _ 
+ | |_) / _ \| |/ / _ \ '_ ` _ \ / _ \| '_ \  | | '_ ` _ \ / _` |
+ |  __/ (_) |   <  __/ | | | | | (_) | | | | | | | | | | | (_| |
+ |_|   \___/|_|\_\___|_| |_| |_|\___/|_| |_| |_|_| |_| |_|\__, |
+                                                          |___/                                              
+*/
+
+
+@keyframes imgJump {
+	0% {
+	  transform: translate(0px);
+	}
+  
+	50% {
+	  transform: translate(0px, -10px);
+	}
+  
+	100% {
+	  transform: translate(0px);
+	}
+  }
+
+#pikachu {
+    width: 200px;
+    position: relative;
+    right: 350px;
+	bottom: 372px; 
+	animation: 2s ease-in-out 0s infinite normal none running imgJump;
+}
+
+#ash {
+	width: 200px;
+    position: relative;
+    left: 934px;
+    bottom: 372px;
+    animation: 2s ease-in-out 0s infinite normal none running imgJump;
+}
+
+
+
+@media (min-width: 1905px) {
+    
+	
 }

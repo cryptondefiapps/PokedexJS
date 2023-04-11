@@ -6,6 +6,12 @@
         <title>Pokedex</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <style>
+            @font-face {
+              font-family: 'coders-crux2';
+              src: url('font/CodersCrux2.ttf');
+            }
+        </style>
         <script src="script.js" type="text/javascript" defer></script>
     </head>
     <body>
@@ -50,7 +56,7 @@
                                 <div id="buttontopPicture2"></div>
                             </div>
                             <div data-poke-img-container id="picture">
-                                <img data-poke-img src="img/poke-shadow.png" alt="poke-img" height="170"/>
+                                <img data-poke-img src="img/poke-shadow.png" alt="poke-img" height="200"/>
                             </div>
                             <div id="buttonbottomPicture"></div>
                             <div id="speakers">
@@ -94,13 +100,17 @@
                             <div class="blueButton" onclick="blueButtonGroupPressed(2, event)"></div>
                             <div class="blueButton" onclick="blueButtonGroupPressed(3, event)"></div>
                             <div class="blueButton" onclick="blueButtonGroupPressed(4, event)"></div>
-                        </div>
-                        <div id="blueButtons2">
                             <div class="blueButton" onclick="blueButtonGroupPressed(5, event)"></div>
                             <div class="blueButton" onclick="blueButtonGroupPressed(6, event)"></div>
+                        </div>
+                        <div id="blueButtons2">
                             <div class="blueButton" onclick="blueButtonGroupPressed(7, event)"></div>
                             <div class="blueButton" onclick="blueButtonGroupPressed(8, event)"></div>
                             <div class="blueButton" onclick="blueButtonGroupPressed(9, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(10, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(11, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(12, event)"></div>
+                            <div class="blueButton" onclick="blueButtonGroupPressed(13, event)"></div>
                         </div>
                         <div id="bg_curve1_right"></div>
                         <div id="bg_curve2_right"></div>
@@ -108,7 +118,8 @@
                         <div id="curve2_right"></div>
                     </div>
                 </div>
-                
+                <img src="img/pikachu.png" alt="pikachu" id="pikachu">
+                <img src="img/ash.png" alt="Ash" id="ash">
             </div>
         </main>
     </body>

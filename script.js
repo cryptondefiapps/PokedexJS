@@ -13,7 +13,7 @@ const pokeInput = document.getElementById('poke-input')
 // Stores the current pokemon ID in a variable
 let currentPokemonId = 0
 let currentPokeSprite = 0
-let savedId = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+let savedId = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 let greenButtonPress = false
 let redButtonPress = false
 let blueButtonGroupPress = false
