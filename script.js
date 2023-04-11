@@ -8,16 +8,17 @@ const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
 // const pokeInput = document.querySelector('#poke-input')
 const pokeInput = document.getElementById('poke-input')
-
+const blueButtons = document.getElementsByClassName('blueButton')
+const savedIds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+const pokeSprite = []
 
 // Stores the current pokemon ID in a variable
 let currentPokemonId = 0
 let currentPokeSprite = 0
-let savedId = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 let greenButtonPress = false
 let redButtonPress = false
 let blueButtonGroupPress = false
-const pokeSprite = []
+
 
 // Input key pressed
 const onKeyPressed = (event) => {  
@@ -111,15 +112,15 @@ const redButtonPressed = () => {
 }
 
 // Blue Button Group is Pressed
-const blueButtonGroupPressed = (position, event) => {
+const memorySlotPressed = (position, event) => {
     blueButtonGroupPress = true
     const button = event.target
     if (greenButtonPress === true) {
-        handleChangeSavedId(savedId, position, currentPokemonId)
+        handleChangeSavedId(savedIds, position, currentPokemonId)
         blueButtonGroupPress = false
         greenButtonPress = false
-        if (savedId[position] > 0 && pokeName.textContent !== 'Pokemon not found') {
-            console.log(savedId[position])
+        if (savedIds[position] > 0 && pokeName.textContent !== 'Pokemon not found') {
+            console.log(savedIds[position])
             button.style.background = 'linear-gradient(top, #f3860b 0%, #e5c005 80%)'
             button.style.background = '-webkit-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
             button.style.background = '-moz-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
@@ -129,7 +130,7 @@ const blueButtonGroupPressed = (position, event) => {
 
     }
     else if (redButtonPress === true) {
-        handleChangeSavedId(savedId, position, 0)
+        handleChangeSavedId(savedIds, position, 0)
         blueButtonGroupPress = false
         redButtonPress = false
         button.style.background = ''
@@ -137,13 +138,24 @@ const blueButtonGroupPressed = (position, event) => {
         console.log('id has been removed in position: ' + position)
     }
     else if (greenButtonPress === false && redButtonPress === false) {
-        if (savedId[position] === 0) return
-        pokemon = savedId[position]
+        if (savedIds[position] === 0) return
+        pokemon = savedIds[position]
         searchPokemon(pokemon)
         blueButtonGroupPress = false
         console.log('We execute the search for the pokemon registered in position: ' + position)
     }
     return
+}
+
+const resetMemory = () => {
+
+    for (button of blueButtons) {
+        button.style.background = ""
+    }
+
+    for (i = 0; i < savedIds.length; i++) {
+        savedIds[i] = 0
+    }
 }
 
 
@@ -182,8 +194,6 @@ const renderPokemonData = (data) => {
         pokeSprite[1] = data.sprites.versions['generation-v']['black-white'].animated.back_default;
     }
 
-    
-
     // Take stats and types
     const { stats, types } = data;
 
@@ -194,6 +204,15 @@ const renderPokemonData = (data) => {
 
     // Update Current Pokemon ID
     currentPokemonId = data.id
+
+    // Play Poke Audio
+    const audio = new Audio(`cries/${currentPokemonId}.ogg`)
+    audio.onerror = function() {
+        console.log('Audio not found');
+    };
+    audio.oncanplaythrough = function() {
+        audio.play();
+    };
 
     renderPokemonTypes(types);
     renderPokemonStats(stats);
