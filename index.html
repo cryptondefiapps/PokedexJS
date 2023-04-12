@@ -66,9 +66,15 @@
                                 <div class="sp"></div>
                             </div>
                         </div>
-                        <div id="bigbluebutton" onclick="resetMemory()"></div>
-                        <div id="barbutton1" onclick="greenButtonPressed()"></div>
-                        <div id="barbutton2" onclick="redButtonPressed()"></div>
+                        <div id="bigbluebutton" onclick="resetMemory()">
+                            <span tooltip="Reset all memory slots" flow="down"></span>
+                        </div>
+                        <div id="barbutton1" onclick="greenButtonPressed()">
+                            <span tooltip="Press to save" flow="down"></span>
+                        </div>
+                        <div id="barbutton2" onclick="redButtonPressed()">
+                            <span tooltip="Press to delete" flow="down"></span>
+                        </div>
                         <div id="cross">
                             <div id="leftcross" onclick="handleBeforePokemon()">
                                 <div id="leftT"></div>
@@ -95,22 +101,22 @@
                             <div data-poke-stats id="poke-stats"></div>
                         </div>
                         <div id="blueButtons1">
-                            <div class="blueButton" onclick="memorySlotPressed(0, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(1, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(2, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(3, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(4, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(5, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(6, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="0" onclick="memorySlotPressed(0, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="1" onclick="memorySlotPressed(1, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="2" onclick="memorySlotPressed(2, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="3" onclick="memorySlotPressed(3, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="4" onclick="memorySlotPressed(4, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="5" onclick="memorySlotPressed(5, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="6" onclick="memorySlotPressed(6, event)"></div>
                         </div>
                         <div id="blueButtons2">
-                            <div class="blueButton" onclick="memorySlotPressed(7, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(8, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(9, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(10, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(11, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(12, event)"></div>
-                            <div class="blueButton" onclick="memorySlotPressed(13, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="7" onclick="memorySlotPressed(7, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="8" onclick="memorySlotPressed(8, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="9" onclick="memorySlotPressed(9, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="10" onclick="memorySlotPressed(10, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="11" onclick="memorySlotPressed(11, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="12" onclick="memorySlotPressed(12, event)"></div>
+                            <div class="blueButton" data-memory-slot-id="13" onclick="memorySlotPressed(13, event)"></div>
                         </div>
                         <div id="bg_curve1_right"></div>
                         <div id="bg_curve2_right"></div>

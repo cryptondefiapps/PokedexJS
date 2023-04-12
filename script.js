@@ -85,34 +85,33 @@ const handlePokeSpriteChange = (spritePos) => {
 
 // Green Button is Pressed
 const greenButtonPressed = () => {
-    console.log('greenButtonPressed')
+    resetMemorySlotsAnimation()
+    for (i=0; i < savedIds.length; i++) if (savedIds[i] === 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
     if (redButtonPress === false && greenButtonPress === false) {
         greenButtonPress = true
-        console.log('greenButton is true ' + greenButtonPress)
     }
     else if (redButtonPress === true) {
         redButtonPress = false
-        greenButtonPress = true 
-        console.log('Green button  is: ' + greenButtonPress + ',' + ' Red button is: ' + redButtonPress)
+        greenButtonPress = true
     }
 }
 
 // Red Button is Pressed
 const redButtonPressed = () => {
-    console.log('redButtonPressed')
+    resetMemorySlotsAnimation()
+    for (i=0; i < savedIds.length; i++) if (savedIds[i] !== 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
     if (redButtonPress === false && greenButtonPress === false) {
         redButtonPress = true
-        console.log('redButton is true ' + redButtonPress)
     }
     else if (greenButtonPress === true) {
         greenButtonPress = false
         redButtonPress = true
-        console.log('Red button is: ' + redButtonPress + ',' + ' Green button is: ' + greenButtonPress)
     }
 }
 
 // Blue Button Group is Pressed
 const memorySlotPressed = (position, event) => {
+    if (currentPokemonId === 0) return
     blueButtonGroupPress = true
     const button = event.target
     if (greenButtonPress === true) {
@@ -127,7 +126,6 @@ const memorySlotPressed = (position, event) => {
             button.style.background = '-o-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
         }
         console.log('new registered id in position: ' + position)
-
     }
     else if (redButtonPress === true) {
         handleChangeSavedId(savedIds, position, 0)
@@ -144,11 +142,19 @@ const memorySlotPressed = (position, event) => {
         blueButtonGroupPress = false
         console.log('We execute the search for the pokemon registered in position: ' + position)
     }
+    resetMemorySlotsAnimation()
     return
 }
 
-const resetMemory = () => {
+const resetMemorySlotsAnimation = () => {
+    for (i=0; i < savedIds.length; i++) {
+        const slot = document.querySelector(`[data-memory-slot-id="${i}"]`);
+        slot.classList.remove('jiggle')
+    }
+}
 
+const resetMemory = () => {
+    resetMemorySlotsAnimation()
     for (button of blueButtons) {
         button.style.background = ""
     }
