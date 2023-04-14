@@ -814,8 +814,9 @@ header {
   padding: 3px;
 }
 
-/* Blue buttons */
-.blueButton {
+/* Memory slots */
+
+.memory-slot {
   height: 35px;
   width: 45px;
   background-color: #003300;
@@ -827,11 +828,20 @@ header {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -o-border-radius: 10px;
+}
 
+.blueButton {
   background: linear-gradient(top, #307bfb 0%, #0530e5 80%);
   background: -webkit-linear-gradient(top, #307bfb 0%, #0530e5 80%);
   background: -moz-linear-gradient(top, #307bfb 0%, #0530e5 80%);
   background: -o-linear-gradient(top, #307bfb 0%, #0530e5 80%);
+}
+
+.orangeButton {
+  background: linear-gradient(top, #f3860b 0%, #e5c005 80%);
+  background: -webkit-linear-gradient(top, #f3860b 0%, #e5c005 80%);
+  background: -moz-linear-gradient(top, #f3860b 0%, #e5c005 80%);
+  background: -o-linear-gradient(top, #f3860b 0%, #e5c005 80%);
 }
 
 /* First row of blue buttons */

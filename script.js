@@ -8,10 +8,13 @@ const pokeStats = document.querySelector('[data-poke-stats]');
 const pokeInput = document.getElementById('poke-input')
 const toggleSoundIcon = document.getElementById('toggle-sound')
 const blueButtons = document.getElementsByClassName('blueButton')
-const savedIds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+let savedIds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 const pokeSprite = []
+const storedToggleSound = localStorage.getItem('savedToggleSound')
+const storedIdsString = localStorage.getItem('savedIdsInLocalStorage')
 
-
+let storeIdsArray = []
 let currentPokemonId = 0
 let currentPokeSprite = 0
 let greenButtonPress = false
@@ -19,6 +22,41 @@ let redButtonPress = false
 let blueButtonGroupPress = false
 let isSoundMuted = false
 
+const savedIdsToLocalStorage = (savedIds) => {
+    localStorage.setItem('savedIdsInLocalStorage', JSON.stringify(savedIds))
+}
+
+const applySavedIdsState = () => {
+    if (storedIdsString !== null) {
+        storeIdsArray = JSON.parse(storedIdsString)
+        savedIds = storeIdsArray
+        console.log(savedIds)
+        
+        for (i = 0; i < savedIds.length; i ++){
+            const slot = document.querySelector(`[data-memory-slot-id="${i}"]`)
+            if (savedIds[i] !== 0){
+                slot.classList.replace('blueButton', 'orangeButton')
+            }
+        }
+    }
+
+}
+
+const savedToggleSoundToLocalStorage = () => {
+    localStorage.setItem('savedToggleSound', isSoundMuted)
+}
+
+const applySavedSoundState = () => {
+    if (storedToggleSound !== null) {
+        isSoundMuted = JSON.parse(storedToggleSound)
+    }
+    if (isSoundMuted) {
+        toggleSoundIcon.classList.replace("fa-volume-high", "fa-volume-xmark")
+    }
+    else {
+        toggleSoundIcon.classList.replace("fa-volume-xmark", "fa-volume-high")
+    }
+}
 
 const onKeyPressed = (event) => {
 
@@ -78,6 +116,7 @@ const handlePokeSpriteChange = (spritePos) => {
 
 const greenButtonPressed = () => {
     resetMemorySlotsAnimation()
+    if (currentPokemonId === 0) return
     for (i = 0; i < savedIds.length; i++) if (savedIds[i] === 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
     if (redButtonPress === false && greenButtonPress === false) {
         greenButtonPress = true
@@ -101,28 +140,29 @@ const redButtonPressed = () => {
 }
 
 const memorySlotPressed = (position, event) => {
-    if (currentPokemonId === 0) return
     blueButtonGroupPress = true
     const button = event.target
     if (greenButtonPress === true) {
-        handleChangeSavedId(savedIds, position, currentPokemonId)
+        if (currentPokemonId === 0) {
+            resetMemorySlotsAnimation()
+            greenButtonPress = false
+            return
+        }
+        handleChangeSavedId(position, currentPokemonId)
         blueButtonGroupPress = false
         greenButtonPress = false
         if (savedIds[position] > 0 && pokeName.textContent !== 'Pokemon not found') {
             console.log(savedIds[position])
-            button.style.background = 'linear-gradient(top, #f3860b 0%, #e5c005 80%)'
-            button.style.background = '-webkit-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
-            button.style.background = '-moz-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
-            button.style.background = '-o-linear-gradient(top, #f3860b 0%, #e5c005 80%)'
+            button.classList.replace('blueButton', 'orangeButton')
         }
         console.log('new registered id in position: ' + position)
+        console.log('Updated saved pokeIds in localStorage')
     }
     else if (redButtonPress === true) {
         handleChangeSavedId(savedIds, position, 0)
         blueButtonGroupPress = false
         redButtonPress = false
-        button.style.background = ''
-
+        button.classList.replace('orangeButton', 'blueButton')
         console.log('id has been removed in position: ' + position)
     }
     else if (greenButtonPress === false && redButtonPress === false) {
@@ -131,8 +171,10 @@ const memorySlotPressed = (position, event) => {
         searchPokemon(pokemon)
         blueButtonGroupPress = false
         console.log('We execute the search for the pokemon registered in position: ' + position)
+        console.log('Updated saved pokeIds in localStorage')
     }
     resetMemorySlotsAnimation()
+    savedIdsToLocalStorage(savedIds)
     return
 }
 
@@ -145,19 +187,20 @@ const resetMemorySlotsAnimation = () => {
 
 const resetMemory = () => {
     resetMemorySlotsAnimation()
-    for (button of blueButtons) {
-        button.style.background = ""
-    }
-
     for (i = 0; i < savedIds.length; i++) {
-        savedIds[i] = 0
+        const slot = document.querySelector(`[data-memory-slot-id="${i}"]`)
+        if (savedIds[i] !== 0){
+            slot.classList.replace('orangeButton', 'blueButton')
+            savedIds[i] = 0
+        }
     }
+    savedIdsToLocalStorage(savedIds)
 }
 
-const handleChangeSavedId = (savedId, position, newId) => {
-    console.log(savedId)
-    if (position >= 0 && position < savedId.length) {
-        savedId[position] = newId
+const handleChangeSavedId = (position, newId) => {
+    console.log(savedIds)
+    if (position >= 0 && position < savedIds.length) {
+        savedIds[position] = newId
     }
     else {
         console.error('index out of range')
@@ -167,6 +210,7 @@ const handleChangeSavedId = (savedId, position, newId) => {
 const toggleSound = () => {
     isSoundMuted === true ? isSoundMuted = false : isSoundMuted = true;
     isSoundMuted === true ? toggleSoundIcon.classList.replace('fa-volume-high', 'fa-volume-xmark') : toggleSoundIcon.classList.replace('fa-volume-xmark' ,'fa-volume-high')
+    savedToggleSoundToLocalStorage()
 }
 
 const searchPokemon = (pokemon) => {
@@ -237,9 +281,13 @@ const renderPokemonStats = (stats) => {
 
 const renderNotFound = () => {
     console.log('errooor')
+    currentPokemonId = 0
     pokeName.textContent = 'Pokemon not found';
     pokeImg.setAttribute('src', 'img/poke-shadow.png');
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
 }
+
+applySavedSoundState()
+applySavedIdsState()
