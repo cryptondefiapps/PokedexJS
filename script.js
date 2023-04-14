@@ -1,4 +1,3 @@
-// Elements Selectors
 const pokeCard = document.querySelector('[data-poke-card]');
 const pokeName = document.querySelector('[data-poke-name]');
 const pokeImg = document.querySelector('[data-poke-img]');
@@ -6,22 +5,22 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
-// const pokeInput = document.querySelector('#poke-input')
 const pokeInput = document.getElementById('poke-input')
+const toggleSoundIcon = document.getElementById('toggle-sound')
 const blueButtons = document.getElementsByClassName('blueButton')
 const savedIds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 const pokeSprite = []
 
-// Stores the current pokemon ID in a variable
+
 let currentPokemonId = 0
 let currentPokeSprite = 0
 let greenButtonPress = false
 let redButtonPress = false
 let blueButtonGroupPress = false
+let isSoundMuted = false
 
 
-// Input key pressed
-const onKeyPressed = (event) => {  
+const onKeyPressed = (event) => {
 
     if (event.keyCode === 13) {
         const value = pokeInput.value
@@ -30,20 +29,17 @@ const onKeyPressed = (event) => {
     }
 }
 
-// Pokeball pressed
 const pokeballPressed = () => {
     const value = pokeInput.value
     pokeInput.value = ""
     searchPokemon(value)
 }
 
-// Next Pokemon
 const nextPokemon = (currentId) => {
     const nextId = currentId + 1
     searchPokemon(nextId)
 }
 
-// Handle nextPokemon click
 const handleNextPokemon = () => {
     if (currentPokemonId !== null) {
         nextPokemon(currentPokemonId)
@@ -53,13 +49,11 @@ const handleNextPokemon = () => {
     }
 }
 
-// Before Pokemon
 const beforePokemon = (currentId) => {
     const beforeId = currentId - 1
     searchPokemon(beforeId)
 }
 
-// Handle beforePokemon click
 const handleBeforePokemon = () => {
     if (currentPokemonId !== null && currentPokemonId > 1) {
         beforePokemon(currentPokemonId)
@@ -69,10 +63,9 @@ const handleBeforePokemon = () => {
     }
 }
 
-// Handle change pokeSprite front or back
 const handlePokeSpriteChange = (spritePos) => {
-    if ( pokeSprite[0] === undefined || pokeSprite[1] === undefined ) return
-    
+    if (pokeSprite[0] === undefined || pokeSprite[1] === undefined) return
+
     if (spritePos === 0) {
         if (pokeSprite[0] === null) return
         pokeImg.setAttribute('src', pokeSprite[0]);
@@ -83,10 +76,9 @@ const handlePokeSpriteChange = (spritePos) => {
     }
 }
 
-// Green Button is Pressed
 const greenButtonPressed = () => {
     resetMemorySlotsAnimation()
-    for (i=0; i < savedIds.length; i++) if (savedIds[i] === 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
+    for (i = 0; i < savedIds.length; i++) if (savedIds[i] === 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
     if (redButtonPress === false && greenButtonPress === false) {
         greenButtonPress = true
     }
@@ -96,10 +88,9 @@ const greenButtonPressed = () => {
     }
 }
 
-// Red Button is Pressed
 const redButtonPressed = () => {
     resetMemorySlotsAnimation()
-    for (i=0; i < savedIds.length; i++) if (savedIds[i] !== 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
+    for (i = 0; i < savedIds.length; i++) if (savedIds[i] !== 0) (document.querySelector(`[data-memory-slot-id="${i}"]`)).classList.add('jiggle')
     if (redButtonPress === false && greenButtonPress === false) {
         redButtonPress = true
     }
@@ -109,7 +100,6 @@ const redButtonPressed = () => {
     }
 }
 
-// Blue Button Group is Pressed
 const memorySlotPressed = (position, event) => {
     if (currentPokemonId === 0) return
     blueButtonGroupPress = true
@@ -132,7 +122,7 @@ const memorySlotPressed = (position, event) => {
         blueButtonGroupPress = false
         redButtonPress = false
         button.style.background = ''
-        
+
         console.log('id has been removed in position: ' + position)
     }
     else if (greenButtonPress === false && redButtonPress === false) {
@@ -147,7 +137,7 @@ const memorySlotPressed = (position, event) => {
 }
 
 const resetMemorySlotsAnimation = () => {
-    for (i=0; i < savedIds.length; i++) {
+    for (i = 0; i < savedIds.length; i++) {
         const slot = document.querySelector(`[data-memory-slot-id="${i}"]`);
         slot.classList.remove('jiggle')
     }
@@ -164,32 +154,32 @@ const resetMemory = () => {
     }
 }
 
-
-// Handle change saved ID
 const handleChangeSavedId = (savedId, position, newId) => {
     console.log(savedId)
     if (position >= 0 && position < savedId.length) {
         savedId[position] = newId
     }
     else {
-        console.error ('index out of range')
+        console.error('index out of range')
     }
 }
 
-// Fetch API
+const toggleSound = () => {
+    isSoundMuted === true ? isSoundMuted = false : isSoundMuted = true;
+    isSoundMuted === true ? toggleSoundIcon.classList.replace('fa-volume-high', 'fa-volume-xmark') : toggleSoundIcon.classList.replace('fa-volume-xmark' ,'fa-volume-high')
+}
+
 const searchPokemon = (pokemon) => {
     const pokemonString = typeof pokemon === 'number' ? pokemon.toString() : pokemon
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonString.toLowerCase()}`)
-    .then(data => data.json())
-    //Send the response to renderPokemonData function
-    .then(response => renderPokemonData(response))
-    .catch(err => renderNotFound())
+        .then(data => data.json())
+        .then(response => renderPokemonData(response))
+        .catch(err => renderNotFound())
 }
 
 const renderPokemonData = (data) => {
     console.log(data)
-    // Front & Back Sprites
     if (data.sprites.versions['generation-v']['black-white'].animated.front_default === null || data.sprites.versions['generation-v']['black-white'].animated.back_default === null) {
         if (data.sprites.front_default === null) return
         pokeSprite[0] = data.sprites.front_default
@@ -200,28 +190,26 @@ const renderPokemonData = (data) => {
         pokeSprite[1] = data.sprites.versions['generation-v']['black-white'].animated.back_default;
     }
 
-    // Take stats and types
     const { stats, types } = data;
 
-    // Fill the elements with the data received
     pokeName.textContent = data.name;
     pokeImg.setAttribute('src', pokeSprite[0]);
     pokeId.textContent = `Nº ${data.id}`;
 
-    // Update Current Pokemon ID
     currentPokemonId = data.id
-
-    // Play Poke Audio
-    const audio = new Audio(`cries/${currentPokemonId}.ogg`)
-    audio.onerror = function() {
-        console.log('Audio not found');
-    };
-    audio.oncanplaythrough = function() {
-        audio.play();
-    };
 
     renderPokemonTypes(types);
     renderPokemonStats(stats);
+
+    if (isSoundMuted === false) {
+        const audio = new Audio(`cries/${currentPokemonId}.ogg`)
+        audio.onerror = function () {
+            console.log('Audio not found');
+        };
+        audio.oncanplaythrough = function () {
+            audio.play();
+        };
+    }
 }
 
 const renderPokemonTypes = (types) => {
@@ -229,7 +217,6 @@ const renderPokemonTypes = (types) => {
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
         typeTextElement.textContent = type.type.name;
-        // In case there are two or more types, add a new div for each one
         pokeTypes.appendChild(typeTextElement);
     });
 }
@@ -254,5 +241,5 @@ const renderNotFound = () => {
     pokeImg.setAttribute('src', 'img/poke-shadow.png');
     pokeTypes.innerHTML = '';
     pokeStats.innerHTML = '';
-    pokeId.textContent = '';    
-};
+    pokeId.textContent = '';
+}

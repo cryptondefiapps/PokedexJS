@@ -24,6 +24,7 @@ header {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  background-color: #282525;
 }
 
 /*
@@ -374,11 +375,12 @@ header {
 
 /* Red button */
 #buttonbottomPicture {
-  height: 26px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
   background-color: #c00d0d;
   margin-left: 35px;
   float: left;
+  cursor: pointer;
 
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -394,6 +396,13 @@ header {
   background: -webkit-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
   background: -moz-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
   background: -o-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
+}
+
+.custom-white {
+  position: relative;
+  top: 6px;
+  left: 4px;
+  color: #efe9e9fc;
 }
 
 /* Speakers */
