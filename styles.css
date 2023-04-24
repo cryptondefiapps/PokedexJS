@@ -10,6 +10,9 @@
 
 body {
   background-color: var(--main-bg-color);
+  min-width: 720px;
+  width: 100vw;
+  max-width: 100%;
 }
 
 header {
@@ -46,11 +49,6 @@ header {
 /* Defines and centers the entire structure of the pokedex */
 @media all {
 
-  #pokedex {
-    width: 1000px;
-    margin: 50px auto 0 auto;
-  }
-
   #left {
     width: 500px;
     height: 600px;
@@ -70,9 +68,12 @@ header {
 
 /* Pokedex container */
 #pokedex {
-  max-width: 1000px;
-  width: 100%;
-  margin: 75px auto 0 auto;
+    max-width: 976px;
+    width: 100%;
+    margin: 75px auto 0 auto;
+    min-height: 613px;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -866,6 +867,318 @@ header {
   left: 49px;
 }
 
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #left {
+    width: 400px;
+    height: 500px;
+    margin-left: 20px;
+  }
+  #bg_curve1_left {
+    width: 400px;
+  }
+  #bg_curve2_left {
+    width: 400px;
+    height: 420px;
+  }
+  #curve1_left {
+    width: 201px;
+    height: 85px;
+  }
+  #buttonGlass, #miniButtonGlass1, #miniButtonGlass2 {
+    margin-right: 15px;
+  }
+  #curve2_left, #junction {
+    height: 451px;
+  }
+  #junction1 {
+    height: 40px;
+    margin-top: 50px;
+  }
+  #junction2 {
+    height: 40px;
+  }
+  #screen {
+    height: 245px;
+    width: 260px;
+    top: 130px;
+  }
+  #picture {
+    height: 175px;
+    width: 254px;
+  }
+  #picture img {
+    margin: 13px auto;
+    height: 150px;
+  }
+  #buttonbottomPicture {
+    height: 26px;
+    width: 26px;
+  }
+  .custom-white {
+    left: 3px;
+  }
+  #bigbluebutton {
+    height: 50px;
+    width: 50px;
+    top: 395px;
+    left: 30px;
+  }
+  #barbutton1 {
+    width: 50px;
+    top: 405px;
+    left: 100px;
+  }
+  #barbutton2 {
+    width: 50px;
+    top: 405px;
+    left: 165px;
+  }
+  #cross {
+    top: 394px;
+    left: 230px;
+  }
+  
+  #right {
+    width: 350px;
+    height: 500px;
+    margin-right: 20px;
+  }
+  #curve1_right {
+    height: 451px;
+  }
+  #curve2_right {
+    width: 216px;
+  }
+  #bg_curve1_right {
+    width: 350px;
+    height: 80px;
+  }
+  #bg_curve2_right {
+    width: 350px;
+    height: 420px;
+    bottom: 0;
+  }
+  #stats {
+    height: 225px;
+    width: 280px;
+    top: 130px;
+    font-size: 1.2rem;
+  }
+  #poke-id {
+    font-size: 1rem;
+  }
+  #poke-types {
+    flex-direction: inherit;
+    font-size: 1rem;
+  }
+  #poke-stats {
+    font-size: 0.9rem;
+  } 
+  #blueButtons1 {
+    top: 395px;
+    left: 31px;
+  }
+  #blueButtons2 {
+    top: 435px;
+    left: 31px;
+  }
+  .memory-slot {
+    width: 35px;
+  }
+
+}
+
+/* Smartphone */
+@media screen and (max-width: 767px) {
+  #left {
+    width: 350px;
+    height: 450px;
+    margin-left: 20px;
+  }
+  #bg_curve1_left {
+    width: 350px;
+  }
+  #bg_curve2_left {
+    width: 350px;
+    height: 370px;
+  }
+  #curve1_left {
+    width: 201px;
+    height: 85px;
+  }
+  #buttonGlass, #miniButtonGlass1, #miniButtonGlass2 {
+    margin-right: 15px;
+  }
+  #curve2_left {
+    height: 401px;
+    width: 166px;
+  }
+  #junction {
+    height: 401px;
+  }
+  #junction1 {
+    height: 35px;
+    margin-top: 32px;
+  }
+  #junction2 {
+    height: 35px;
+  }
+  #screen {
+    height: 195px;
+    width: 210px;
+    top: 130px;
+  }
+  #screen:after {
+    border-top: 30px solid #b0b0b0;
+    border-left: 30px solid #c00d0d;
+  }
+  #picture {
+    height: 125px;
+    width: 204px;
+  }
+  #picture img {
+    margin: 13px auto;
+    height: 100px;
+  }
+  #buttonbottomPicture {
+    height: 26px;
+    width: 26px;
+    margin-left: 19px;
+  }
+  .custom-white {
+    left: 3px;
+  }
+  #bigbluebutton {
+    height: 45px;
+    width: 45px;
+    top: 359px;
+    left: 25px;
+  }
+  #barbutton1 {
+    width: 45px;
+    top: 369px;
+    left: 90px;
+  }
+  #barbutton2 {
+    width: 45px;
+    top: 369px;
+    left: 155px;
+  }
+  #cross {
+    top: 353px;
+    left: 206px;
+  }
+  #leftcross {
+    width: 25px;
+    height: 25px;
+    left: 5px;
+  }
+  #leftT {
+    border-top: 9px solid transparent;
+    border-right: 9px solid #111;
+    border-bottom: 9px solid transparent;
+    top: 4px;
+  }
+  #topcross {
+    width: 25px;
+    height: 25px;
+    top: 5px;
+  }
+  #upT {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #111;
+    left: 3px;
+  }
+  #rightcross {
+    width: 25px;
+    height: 25px;
+    right: 10px;
+  }
+  #rightT {
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-left: 9px solid #111;
+    border-bottom: 9px solid transparent;
+    top: 4px;
+  }
+  #midcross {
+    width: 25px;
+    height: 25px;
+  }
+  #midCircle {
+    top: 4px;
+    left: 2px;
+  }
+  #botcross {
+    width: 25px;
+    height: 25px;
+    bottom: 10px;
+  }
+  #downT {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #111;
+    left: 3px;
+  }
+  
+  #right {
+    width: 300px;
+    height: 450px;
+    margin-right: 20px;
+  }
+  #curve1_right {
+    height: 401px;
+    width: 116px;
+  }
+  #curve2_right {
+    width: 216px;
+  }
+  #bg_curve1_right {
+    width: 300px;
+    height: 30px;
+  }
+  #bg_curve2_right {
+    width: 300px;
+    height: 370px;
+    bottom: 0;
+    top: 50px;
+  }
+  #stats {
+    height: 175px;
+    width: 230px;
+    top: 130px;
+    font-size: 0.9rem;
+  }
+  #poke-name {
+    margin: 5px auto;
+  }
+  #poke-id {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+  #poke-types {
+    flex-direction: inherit;
+    font-size: 0.8rem;
+  }
+  #poke-stats {
+    font-size: 0.7rem;
+  } 
+  #blueButtons1 {
+    top: 358px;
+    left: 25px;
+  }
+  #blueButtons2 {
+    top: 394px;
+    left: 25px;
+  }
+  .memory-slot {
+    width: 30px;
+    height: 30px;
+  }
+}
 
 /*
    _____                     _               
@@ -1112,6 +1425,72 @@ input {
   animation: 2s ease-in-out 0s infinite normal none running imgJump;
 }
 
+#img-responsive {
+  display: none;
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1741px) {
+  #pikachu, #ash {
+    display: none;
+  }
+  #img-responsive {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+  #pikachu-r {
+    height: 200px;
+    position: relative;
+    top: 250px;
+  }
+  #ash-r {
+    width: 200px;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #pikachu, #ash {
+    display: none;
+  }
+  #img-responsive {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+  }
+  #pikachu-r {
+    height: 200px;
+    position: relative;
+    top: 176px;
+  }
+  #ash-r {
+    width: 200px;
+  }
+
+}
+
+/* Smartphone */
+@media screen and (max-width: 767px) {
+  #pikachu, #ash {
+    display: none;
+  }
+  #img-responsive {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #pikachu-r {
+    height: 150px;
+    position: relative;
+    top: 133px;
+  }
+  #ash-r {
+    width: 150px;
+  }
+}
+
 /*
   ____        _     _     _      
  | __ ) _   _| |__ | |__ | | ___ 
@@ -1121,7 +1500,7 @@ input {
 
 */
 
-.bubble {
+.bubble, .bubble-r {
   display: flex;
   height: 125px;
   width: 250px;
@@ -1132,7 +1511,7 @@ input {
   bottom: 966px;
   left: 1101px;
 }
-.bubble:before {
+.bubble:before, .bubble-r:before {
   border: 25px solid white;
   content: '';
   border-left-color: transparent;
@@ -1144,7 +1523,7 @@ input {
   transform: rotate(-8deg);
 }
 
-.bubble p {
+.bubble p, .bubble-r p {
   display: block;
   white-space: nowrap;
   font-family: coders-crux2, arial, sans-serif;
@@ -1164,6 +1543,90 @@ input {
 
 @keyframes blink {
   50% {border-color: transparent}
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1741px) {
+  .bubble {
+    display: none;
+  }
+  #ash-container {
+    display: flex;
+    margin-top: 80px;
+  }
+  .bubble-r {
+    bottom: 36px;
+    left: 0;
+    height: 89px;
+    width: 200px;
+  }
+  .bubble-r:before {
+    border: 20px solid white;
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -8px;
+    right: 13px;
+    transform: rotate(60deg);
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .bubble {
+    display: none;
+  }
+  #ash-container {
+    display: flex;
+  }
+  .bubble-r {
+    bottom: 36px;
+    left: 0;
+    height: 89px;
+    width: 200px;
+  }
+  .bubble-r:before {
+    border: 20px solid white;
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -8px;
+    right: 13px;
+    transform: rotate(60deg);
+  }
+}
+
+/* Smartphone */
+@media screen and (max-width: 767px) {
+  .bubble {
+    display: none;
+  }
+  #ash-container {
+    display: flex;
+  }
+  .bubble-r {
+    bottom: 36px;
+    left: 0;
+    height: 89px;
+    width: 200px;
+  }
+  .bubble-r:before {
+    border: 20px solid white;
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    bottom: -8px;
+    right: 13px;
+    transform: rotate(60deg);
+  }
+  .bubble-r p {
+    font-size: 1rem;
+  }
 }
 
 /* 
@@ -1367,7 +1830,7 @@ footer {
   justify-content: center;
   padding: 10px;
   background: #191717;
-  box-shadow: 0 0 20px #30da0c;;
+  box-shadow: 0 0 20px #30da0c;
 }
 
 #networks {
